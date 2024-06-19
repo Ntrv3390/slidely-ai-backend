@@ -1,18 +1,18 @@
 import express from "express";
 import {
-  handleGetUserById,
-  handleEditUserById,
-  handleDeleteUserById,
+  handleGetUserByIndex,
+  handleEditUserByIndex,
+  handleDeleteUserByIndex,
   handleGetUserByEmail,
 } from "../controllers/user.controllers";
 
 const userGetRouter = express.Router();
 
 userGetRouter
-  .route("/:id")
-  .get(handleGetUserById)
-  .put(handleEditUserById)
-  .delete(handleDeleteUserById);
+  .route("/:index")
+  .get(handleGetUserByIndex)
+  .put(handleEditUserByIndex)
+  .delete(handleDeleteUserByIndex);
 userGetRouter.route("/email/:email").get(handleGetUserByEmail);
 
 export { userGetRouter };

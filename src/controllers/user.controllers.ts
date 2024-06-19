@@ -46,16 +46,16 @@ async function handleCreateNewUser(req: Request, res: Response) {
   }
 }
 
-async function handleGetUserById(req: Request, res: Response) {
+async function handleGetUserByIndex(req: Request, res: Response) {
   try {
-    const id = parseInt(req.params.id, 10);
-    const data = readUsersFromDb(dbFilePath);
-    const users = data.users;
-    const user = users.find((u: any) => u.id === id);
+    const index = parseInt(req.params.index, 10);
+    const allUsers = readUsersFromDb(dbFilePath);
+    const users = allUsers.users;
+    const user = users[index];
     if (!user) {
       res.status(409).json({
         status: 409,
-        message: `User with id - ${id} doesn't exists.`,
+        message: `User with index - ${index} doesn't exists.`,
       });
       return;
     }
@@ -67,52 +67,52 @@ async function handleGetUserById(req: Request, res: Response) {
   }
 }
 
-async function handleEditUserById(req: Request, res: Response) {
+async function handleEditUserByIndex(req: Request, res: Response) {
   try {
-    const id = parseInt(req.params.id, 10);
+    const index = parseInt(req.params.index, 10);
     const allUsers = readUsersFromDb(dbFilePath);
     const users = allUsers.users;
-    const userIndex = users.findIndex((u: any) => u.id === id);
-    if (userIndex === -1) {
+    const user = users[index];
+    if (!user) {
       res.status(409).json({
         status: 409,
-        message: `User with id - ${id} doesn't exist.`,
+        message: `User with index - ${index} doesn't exists.`,
       });
       return;
     }
-    users[userIndex] = { ...users[userIndex], ...req.body };
+    users[index] = { ...users[index], ...req.body };
     const usersObject = { users: allUsers.users };
     writeUsersToDb(usersObject, dbFilePath);
     res.status(200).json({
       status: 200,
-      message: `User with id - ${id} updated successfully.`,
-      user: users[userIndex],
+      message: `User with index - ${index} updated successfully.`,
+      user: users[index],
     });
   } catch (error: Error | any) {
     res.status(501).json({ status: 501, message: error.message });
   }
 }
 
-async function handleDeleteUserById(req: Request, res: Response) {
+async function handleDeleteUserByIndex(req: Request, res: Response) {
   try {
-    const id = parseInt(req.params.id, 10);
+    const index = parseInt(req.params.index, 10);
     const allUsers = readUsersFromDb(dbFilePath);
     const users = allUsers.users;
-    const userIndex = users.findIndex((u: any) => u.id === id);
-    if (userIndex === -1) {
+    const user = users[index];
+    if (!user) {
       res.status(409).json({
         status: 409,
-        message: `User with id - ${id} doesn't exist.`,
+        message: `User with index - ${index} doesn't exists.`,
       });
       return;
     }
-    users.splice(userIndex, 1);
+    users.splice(index, 1);
     const usersObject = { users: allUsers.users };
     writeUsersToDb(usersObject, dbFilePath);
     res.status(200).json({
       status: 200,
-      message: `User with id - ${id} deleted successfully.`,
-      user: users[userIndex],
+      message: `User with index - ${index} deleted successfully.`,
+      user: users[index],
     });
   } catch (error: Error | any) {
     res.status(501).json({ status: 501, message: error.message });
@@ -142,8 +142,8 @@ async function handleGetUserByEmail(req: Request, res: Response) {
 
 export {
   handleCreateNewUser,
-  handleGetUserById,
-  handleEditUserById,
-  handleDeleteUserById,
+  handleGetUserByIndex,
+  handleEditUserByIndex,
+  handleDeleteUserByIndex,
   handleGetUserByEmail
 };
