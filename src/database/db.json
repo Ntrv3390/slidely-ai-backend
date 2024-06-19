@@ -1,20 +1,12 @@
 {
   "users": [
     {
-      "id": 1718788977722,
-      "name": "new date wala User",
-      "email": "a@s.s",
-      "number": 999999999,
-      "githubUrl": "htps:adija.co",
-      "stopwatch": "01:003"
-    },
-    {
-      "id": 1718789956178,
-      "name": "Time pass theta",
-      "email": "df@ca.ad",
-      "number": 3333333333,
-      "githubUrl": "hr://dd.df",
-      "stopwatch": "01:302"
+      "id": 1718794251294,
+      "name": "slidely part1",
+      "email": "s@s.a",
+      "number": "999999999",
+      "github_link": "h:/d.d",
+      "stopwatch_time": "01:01:01"
     }
   ]
 }

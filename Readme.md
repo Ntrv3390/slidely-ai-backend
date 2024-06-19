@@ -45,11 +45,11 @@ This project has several folders and uses the MVC (Model, View, Controller) arch
 
 ```/ping``` - Returns true if server is healthy (i.e running without any errors)
 
-```/api/users``` - Contains POST method to add a new user entry in database.
+```/submit``` - Contains POST method to add a new user entry in database.
 
-```/api/users/:id``` - Contains GET/PUT/DELETE methods for a user with id.
+```/read/:id``` - Contains GET/PUT/DELETE methods for a user with id.
 
-```/api/users/email/:email``` - Contains GET method to search for a user using email.
+```/read/email/:email``` - Contains GET method to search for a user using email.
 
 ### Compile TypeScript
 

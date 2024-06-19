@@ -13,11 +13,11 @@ const UserModel = {
     type: Number,
     required: true,
   },
-  githubLink: {
+  github_link: {
     type: String,
     required: true,
   },
-  stopwatch: {
+  stopwatch_time: {
     type: String,
     required: true,
   },

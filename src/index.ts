@@ -1,18 +1,19 @@
 import express from "express";
-import { userRouter } from "./routes/user.routes";
+import { userGetRouter } from "./routes/userGet.routes";
+import { userPostRouter } from "./routes/userPost.routes";
 import { pingRouter } from "./routes/ping.routes";
 
 const app = express();
-const PORT = 3000
+const PORT = 3000;
 
 // middlewares
-app.use(express.json())
+app.use(express.json());
 
 // routes
-app.use('/ping', pingRouter)
-app.use('/api/users', userRouter)
+app.use("/ping", pingRouter);
+app.use("/submit", userPostRouter);
+app.use("/read", userGetRouter);
 
 app.listen(PORT, () => {
-    console.log("App listening on 3000")
-})
-
+  console.log("App listening on 3000");
+});

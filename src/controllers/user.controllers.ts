@@ -6,18 +6,18 @@ interface User {
   name: string;
   email: string;
   number: number;
-  githubUrl: string;
-  stopwatch: string;
+  github_link: string;
+  stopwatch_time: string;
 }
 
 const dbFilePath = "./src/database/db.json";
 
 async function handleCreateNewUser(req: Request, res: Response) {
   try {
-    const { name, email, number, githubUrl, stopwatch } = req.body;
+    const { name, email, number, github_link, stopwatch_time } = req.body;
     const allUsers = readUsersFromDb(dbFilePath);
     if (
-      [name, email, number, githubUrl, stopwatch].some(
+      [name, email, number, github_link, stopwatch_time].some(
         (item) => !item || (typeof item === "string" && item.trim() === "")
       )
     ) {
@@ -30,8 +30,8 @@ async function handleCreateNewUser(req: Request, res: Response) {
       name,
       email,
       number,
-      githubUrl,
-      stopwatch,
+      github_link,
+      stopwatch_time,
     };
     allUsers.users.push(newUser);
     const usersObject = { users: allUsers.users };

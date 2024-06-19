@@ -1,23 +1,18 @@
 import express from "express";
 import {
-  handleCreateNewUser,
   handleGetUserById,
   handleEditUserById,
   handleDeleteUserById,
-  handleGetUserByEmail
+  handleGetUserByEmail,
 } from "../controllers/user.controllers";
 
-const userRouter = express.Router();
+const userGetRouter = express.Router();
 
-userRouter.post("/", handleCreateNewUser);
-
-userRouter
+userGetRouter
   .route("/:id")
   .get(handleGetUserById)
   .put(handleEditUserById)
   .delete(handleDeleteUserById);
-userRouter
-  .route("/email/:email") 
-  .get(handleGetUserByEmail)
+userGetRouter.route("/email/:email").get(handleGetUserByEmail);
 
-export { userRouter };
+export { userGetRouter };
