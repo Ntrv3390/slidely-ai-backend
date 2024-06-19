@@ -51,6 +51,10 @@ This project has several folders and uses the MVC (Model, View, Controller) arch
 
 ```/api/users/email/:email``` - Contains GET method to search for a user using email.
 
+### Compile TypeScript
+
+To complile typescript run this command in the terminal ```tsc``` the compiled files will be generated in a ```dist``` folder.
+
 ### Author : ```Mohammed Puthawala```
 
 ### Thank you for your visit.
