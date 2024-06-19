@@ -47,7 +47,7 @@ This project has several folders and uses the MVC (Model, View, Controller) arch
 
 ```/submit``` - Contains POST method to add a new user entry in database.
 
-```/read/:id``` - Contains GET/PUT/DELETE methods for a user with id.
+```/read/:index``` - Contains GET/PUT/DELETE methods for a user with id.
 
 ```/read/email/:email``` - Contains GET method to search for a user using email.
 
