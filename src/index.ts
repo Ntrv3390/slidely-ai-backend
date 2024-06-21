@@ -15,5 +15,5 @@ app.use("/submit", userPostRouter);
 app.use("/read", userGetRouter);
 
 app.listen(PORT, () => {
-  console.log("App listening on 3000");
+  console.log(`Server running on http://localhost:${PORT}`);
 });
