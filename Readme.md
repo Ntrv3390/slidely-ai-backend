@@ -29,7 +29,8 @@ This project has several folders and uses the MVC (Model, View, Controller) arch
             *user.models.ts
         -routes
             *ping.routes.ts
-            *user.routes.ts
+            *userGet.routes.ts
+            *userPost.routes.ts
         -utils
             *index.ts
             *readUsersFromDb.ts
