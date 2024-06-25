@@ -11,7 +11,7 @@ Make sure you have latest version of node.js & npm (node package manager) if you
 
 Open a terminal and go to the folder where you cloned the repository or unzipped the files. Then run this command in your terminal ``` npm i ``` to install all the dependencies.
 
-After the dependencies are installed, make sure that port 3000 is free, if this port is not free then you can update the port to 5000, 8000, 8080 or similar in the file ``` src/index.ts ``` then run the following command in your terminal ``` npm run dev ``` to start the express server. The entry file of the server is ``` src/index.ts ```.
+After the dependencies are installed, make sure that port 3000 is free, then run the following command in your terminal ``` npm run dev ``` to start the express server. The entry file of the server is ``` src/index.ts ```.
 
 ### Folder structure
 
